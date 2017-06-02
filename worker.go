@@ -6,14 +6,14 @@ import (
 	"os"
 	"os/signal"
 	"regexp"
-	"strconv"
-	"strings"
+
+	"github.com/Carlows/dolartoday-worker/models"
+	"github.com/robfig/cron"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/robfig/cron"
 )
 
-func requestDolarCotization() float64 {
+func requestDolarCotization() string {
 	doc, err := goquery.NewDocument("https://twitter.com/DolarToday")
 
 	if err != nil {
@@ -25,24 +25,21 @@ func requestDolarCotization() float64 {
 	return parseDolarCotization(content)
 }
 
-func parseDolarCotization(text string) float64 {
+func parseDolarCotization(text string) string {
 	r, _ := regexp.Compile("\\d+,\\d+")
-	amountToParse := r.FindString(text)
-	validAmount := strings.Replace(amountToParse, ",", ".", -1)
-	amount, err := strconv.ParseFloat(validAmount, 64)
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	amount := r.FindString(text)
 
 	return amount
 }
 
 func main() {
+	models.InitDB("user=postgres dbname=dolartoday_worker sslmode=disable")
+
 	c := cron.New()
 
 	c.AddFunc("0 0 8-16 ? * 1-5", func() {
-		fmt.Println(requestDolarCotization())
+		models.AddPrice(requestDolarCotization())
+		fmt.Println("Adding dolar price: ", requestDolarCotization())
 	})
 
 	go c.Start()

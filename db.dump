@@ -15,14 +15,14 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
@@ -35,8 +35,10 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: prices; Type: TABLE; Schema: public; Owner: hashlabs
+-- Name: prices; Type: TABLE; Schema: public; Owner: -
 --
+
+DROP TABLE prices;
 
 CREATE TABLE prices (
     id integer NOT NULL,
@@ -45,10 +47,8 @@ CREATE TABLE prices (
 );
 
 
-ALTER TABLE prices OWNER TO hashlabs;
-
 --
--- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: hashlabs
+-- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
 CREATE SEQUENCE prices_id_seq
@@ -59,24 +59,22 @@ CREATE SEQUENCE prices_id_seq
     CACHE 1;
 
 
-ALTER TABLE prices_id_seq OWNER TO hashlabs;
-
 --
--- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hashlabs
+-- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE prices_id_seq OWNED BY prices.id;
 
 
 --
--- Name: prices id; Type: DEFAULT; Schema: public; Owner: hashlabs
+-- Name: prices id; Type: DEFAULT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY prices ALTER COLUMN id SET DEFAULT nextval('prices_id_seq'::regclass);
 
 
 --
--- Data for Name: prices; Type: TABLE DATA; Schema: public; Owner: hashlabs
+-- Data for Name: prices; Type: TABLE DATA; Schema: public; Owner: -
 --
 
 COPY prices (id, price, created_at) FROM stdin;
@@ -99,14 +97,14 @@ COPY prices (id, price, created_at) FROM stdin;
 
 
 --
--- Name: prices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hashlabs
+-- Name: prices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: -
 --
 
 SELECT pg_catalog.setval('prices_id_seq', 15, true);
 
 
 --
--- Name: prices user_pkey; Type: CONSTRAINT; Schema: public; Owner: hashlabs
+-- Name: prices user_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY prices
@@ -116,4 +114,3 @@ ALTER TABLE ONLY prices
 --
 -- PostgreSQL database dump complete
 --
-

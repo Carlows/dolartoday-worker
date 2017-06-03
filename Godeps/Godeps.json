@@ -1,0 +1,22 @@
+{
+	"ImportPath": "github.com/carlows/dolartoday-worker",
+	"GoVersion": "go1.8",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.4.0-6-g043ee65",
+			"Rev": "043ee6597c29786140136a5747b6a886364f5282"
+		},
+		{
+			"ImportPath": "github.com/lib/pq",
+			"Comment": "go1.0-cutoff-168-g91f10e4",
+			"Rev": "91f10e40ba0dd2d0bf9f93ec1d4077711a78df88"
+		},
+		{
+			"ImportPath": "github.com/lib/pq/oid",
+			"Comment": "go1.0-cutoff-168-g91f10e4",
+			"Rev": "91f10e40ba0dd2d0bf9f93ec1d4077711a78df88"
+		}
+	]
+}

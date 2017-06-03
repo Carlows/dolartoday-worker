@@ -2,14 +2,7 @@
 	"ImportPath": "github.com/carlows/dolartoday-worker",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
-	"Packages": [
-		"./cmd/dolartoday-worker"
-	],
 	"Deps": [
-		{
-			"ImportPath": "github.com/Carlows/dolartoday-worker/models",
-			"Rev": "1bdec5ed68e0fc89875e6c9274edf10737b2a7e5"
-		},
 		{
 			"ImportPath": "github.com/PuerkitoBio/goquery",
 			"Comment": "v1.1.0-5-g2dc9389",
@@ -18,6 +11,11 @@
 		{
 			"ImportPath": "github.com/andybalholm/cascadia",
 			"Rev": "349dd0209470eabd9514242c688c403c0926d266"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Comment": "v1.4.0-6-g043ee65",
+			"Rev": "043ee6597c29786140136a5747b6a886364f5282"
 		},
 		{
 			"ImportPath": "github.com/lib/pq",

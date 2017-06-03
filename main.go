@@ -62,7 +62,7 @@ func main() {
 
 	c := cron.New()
 
-	c.AddFunc("0 0 8-16 ? * 1-5", func() {
+	c.AddFunc("0 0 * * * *", func() {
 		models.AddPrice(requestDolarCotization())
 		fmt.Println("Adding dolar price: ", requestDolarCotization())
 	})

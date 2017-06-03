@@ -2,6 +2,9 @@
 	"ImportPath": "github.com/carlows/dolartoday-worker",
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
+	"Packages": [
+		"./cmd/api"
+	],
 	"Deps": [
 		{
 			"ImportPath": "github.com/gorilla/mux",

@@ -1,2 +1,2 @@
 web: dolartoday-worker
-worker worker
+worker dolartoday-api

@@ -3,13 +3,21 @@
 	"GoVersion": "go1.8",
 	"GodepVersion": "v79",
 	"Packages": [
-		"./cmd/api"
+		"./cmd/worker"
 	],
 	"Deps": [
 		{
-			"ImportPath": "github.com/gorilla/mux",
-			"Comment": "v1.4.0-6-g043ee65",
-			"Rev": "043ee6597c29786140136a5747b6a886364f5282"
+			"ImportPath": "github.com/Carlows/dolartoday-worker/models",
+			"Rev": "fa22d9478ade5430d58277463e45ff2036faff4b"
+		},
+		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v1.1.0-5-g2dc9389",
+			"Rev": "2dc93891ab3bcc1dbc2cbf9bc6376c37f6e6f289"
+		},
+		{
+			"ImportPath": "github.com/andybalholm/cascadia",
+			"Rev": "349dd0209470eabd9514242c688c403c0926d266"
 		},
 		{
 			"ImportPath": "github.com/lib/pq",
@@ -20,6 +28,19 @@
 			"ImportPath": "github.com/lib/pq/oid",
 			"Comment": "go1.0-cutoff-168-g91f10e4",
 			"Rev": "91f10e40ba0dd2d0bf9f93ec1d4077711a78df88"
+		},
+		{
+			"ImportPath": "github.com/robfig/cron",
+			"Comment": "v1-58-g736158d",
+			"Rev": "736158dc09e10f1911ca3a1e1b01f11b566ce5db"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html",
+			"Rev": "48359f4f600b3a2d5cf657458e3f940021631a56"
+		},
+		{
+			"ImportPath": "golang.org/x/net/html/atom",
+			"Rev": "48359f4f600b3a2d5cf657458e3f940021631a56"
 		}
 	]
 }

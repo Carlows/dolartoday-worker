@@ -6,9 +6,9 @@ import (
 )
 
 type Price struct {
-	ID        int
-	Price     string
-	CreatedAt time.Time
+	ID        int       `json:"id"`
+	Price     string    `json:"price"`
+	CreatedAt time.Time `json:"createdAt"`
 }
 
 func AddPrice(amount string) (bool, error) {
@@ -21,4 +21,33 @@ func AddPrice(amount string) (bool, error) {
 	}
 
 	return true, nil
+}
+
+func AllPrices() ([]*Price, error) {
+	rows, err := db.Query("SELECT * FROM prices")
+
+	if err != nil {
+		return nil, err
+	}
+
+	defer rows.Close()
+
+	prices := make([]*Price, 0)
+
+	for rows.Next() {
+		price := new(Price)
+		err = rows.Scan(&price.ID, &price.Price, &price.CreatedAt)
+
+		if err != nil {
+			return nil, err
+		}
+
+		prices = append(prices, price)
+	}
+
+	if err = rows.Err(); err != nil {
+		return nil, err
+	}
+
+	return prices, nil
 }

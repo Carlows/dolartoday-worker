@@ -1,2 +1,2 @@
-web: api/server
-worker worker/worker
+web: dolartoday-worker
+worker worker

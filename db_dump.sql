@@ -1,0 +1,119 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.6.3
+-- Dumped by pg_dump version 9.6.2
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: prices; Type: TABLE; Schema: public; Owner: hashlabs
+--
+
+CREATE TABLE prices (
+    id integer NOT NULL,
+    price character varying(10) NOT NULL,
+    created_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE prices OWNER TO hashlabs;
+
+--
+-- Name: prices_id_seq; Type: SEQUENCE; Schema: public; Owner: hashlabs
+--
+
+CREATE SEQUENCE prices_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE prices_id_seq OWNER TO hashlabs;
+
+--
+-- Name: prices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hashlabs
+--
+
+ALTER SEQUENCE prices_id_seq OWNED BY prices.id;
+
+
+--
+-- Name: prices id; Type: DEFAULT; Schema: public; Owner: hashlabs
+--
+
+ALTER TABLE ONLY prices ALTER COLUMN id SET DEFAULT nextval('prices_id_seq'::regclass);
+
+
+--
+-- Data for Name: prices; Type: TABLE DATA; Schema: public; Owner: hashlabs
+--
+
+COPY prices (id, price, created_at) FROM stdin;
+1	6112,88	2017-06-01 21:49:08.503668
+2	6112,88	2017-06-01 21:49:30.108592
+3	6205,98	2017-06-03 17:19:39.41224
+4	6205,98	2017-06-03 17:19:39.465518
+5	6205,98	2017-06-03 17:19:39.628268
+6	6205,98	2017-06-03 17:19:41.066355
+7	6205,98	2017-06-03 17:19:42.079788
+8	6205,98	2017-06-03 17:19:42.508445
+9	6205,98	2017-06-03 17:19:43.606005
+10	6205,98	2017-06-03 17:19:44.842202
+11	6205,98	2017-06-03 17:19:45.967031
+12	6205,98	2017-06-03 17:19:46.639762
+13	6205,98	2017-06-03 17:19:47.514302
+14	6205,98	2017-06-03 17:19:48.538929
+15	6205,98	2017-06-03 17:19:49.626544
+\.
+
+
+--
+-- Name: prices_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hashlabs
+--
+
+SELECT pg_catalog.setval('prices_id_seq', 15, true);
+
+
+--
+-- Name: prices user_pkey; Type: CONSTRAINT; Schema: public; Owner: hashlabs
+--
+
+ALTER TABLE ONLY prices
+    ADD CONSTRAINT user_pkey PRIMARY KEY (id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+

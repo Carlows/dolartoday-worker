@@ -21,7 +21,7 @@ func GetPricesEndpoint(w http.ResponseWriter, req *http.Request) {
 		req.RequestURI,
 	)
 
-	prices, err := models.AllPrices()
+	prices, err := models.AllPricesChart()
 
 	if err != nil {
 		log.Panic(err)

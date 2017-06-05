@@ -12,6 +12,7 @@ import (
 	"github.com/carlows/dolartoday-worker/models"
 	"github.com/gorilla/mux"
 	"github.com/robfig/cron"
+	"github.com/rs/cors"
 )
 
 func GetPricesEndpoint(w http.ResponseWriter, req *http.Request) {
@@ -71,5 +72,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/prices", GetPricesEndpoint).Methods("GET")
-	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), router))
+
+	handler := cors.Default().Handler(router)
+	log.Fatal(http.ListenAndServe(":"+os.Getenv("PORT"), handler))
 }

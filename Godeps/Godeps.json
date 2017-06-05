@@ -33,6 +33,11 @@
 			"Rev": "736158dc09e10f1911ca3a1e1b01f11b566ce5db"
 		},
 		{
+			"ImportPath": "github.com/rs/cors",
+			"Comment": "v1.0-2-gbf64c53",
+			"Rev": "bf64c5349c0f7e5e1554921e798e052958e0fe2f"
+		},
+		{
 			"ImportPath": "golang.org/x/net/html",
 			"Rev": "48359f4f600b3a2d5cf657458e3f940021631a56"
 		},

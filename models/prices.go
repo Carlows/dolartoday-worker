@@ -30,7 +30,7 @@ func AddPrice(amount string) (bool, error) {
 }
 
 func AllPricesChart() ([]*DayPrice, error) {
-	sqlStatement := `SELECT to_char(created_at, 'DD Mon') as day, MIN(price), MAX(price) FROM prices GROUP BY day`
+	sqlStatement := `SELECT to_char(created_at, 'DD Mon') as day, MIN(price), MAX(price) FROM prices GROUP BY day ORDER BY day`
 
 	rows, err := db.Query(sqlStatement)
 
